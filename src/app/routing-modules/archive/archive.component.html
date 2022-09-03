@@ -1,2 +1,5 @@
 <p>archive works!</p>
-<router-outlet></router-outlet>
+<div *ngFor="let postsInMonth of postsInMonths">
+  {{postsInMonth.month}}
+  <app-posts-list [postsDataList]="postsInMonth.posts"></app-posts-list>
+</div>

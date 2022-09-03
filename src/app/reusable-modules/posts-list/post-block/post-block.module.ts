@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {PostBlockComponent} from "./post-block.component";
+import {RouterModule} from "@angular/router";
 
 
 
@@ -9,7 +10,8 @@ import {PostBlockComponent} from "./post-block.component";
     PostBlockComponent,
   ],
   imports: [
-    CommonModule
+    CommonModule,
+    RouterModule,
   ],
   exports: [
     PostBlockComponent,

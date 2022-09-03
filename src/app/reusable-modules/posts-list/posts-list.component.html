@@ -1,1 +1,3 @@
-<p>posts-list works!</p>
+<div class="container">
+  <app-post-block *ngFor="let postData of postsDataList" [postData]="postData"></app-post-block>
+</div>

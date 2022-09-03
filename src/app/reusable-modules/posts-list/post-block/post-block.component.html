@@ -1,1 +1,6 @@
-<p>post-block works!</p>
+<div>
+  {{postData.title}}
+  {{postData.date}}. {{postData.creator}}
+  {{postData.content|slice: 100}}
+  <a [routerLink]="['/post', postData.id]">Read more!</a>
+</div>

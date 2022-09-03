@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {Post} from "../../shared-interfaces/post.interface";
 
 @Component({
   selector: 'app-interval-posts',
@@ -7,9 +8,64 @@ import { Component, OnInit } from '@angular/core';
 })
 export class IntervalPostsComponent implements OnInit {
 
-  constructor() { }
+  public monthlyPosts: Post[];
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.getPostsArchive();
   }
+
+  public getPostsArchive(): void {
+    this.monthlyPosts = [
+      {
+        id: 4,
+        title: 'abc',
+        creator: 'abc',
+        date: new Date(Date.now()),
+        content: 'abc',
+        tags: ['abc', 'acb'],
+        votes: {
+          status: 0,
+          addresses: [],
+        }
+      },
+      {
+        id: 4,
+        title: 'abc',
+        creator: 'abc',
+        date: new Date(Date.now()),
+        content: 'abc',
+        tags: ['abc', 'acb'],
+        votes: {
+          status: 0,
+          addresses: [],
+        }
+      },
+      {
+        id: 4,
+        title: 'abc',
+        creator: 'abc',
+        date: new Date(Date.now()),
+        content: 'abc',
+        tags: ['abc', 'acb'],
+        votes: {
+          status: 0,
+          addresses: [],
+        }
+      },
+      {
+        id: 4,
+        title: 'abc',
+        creator: 'abc',
+        date: new Date(Date.now()),
+        content: 'abc',
+        tags: ['abc', 'acb'],
+        votes: {
+          status: 0,
+          addresses: [],
+        }
+      }
+    ]
+  }
+
 
 }

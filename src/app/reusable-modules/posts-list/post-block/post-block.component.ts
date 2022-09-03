@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {Post} from "../../../shared-interfaces/post.interface";
 
 @Component({
   selector: 'app-post-block',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./post-block.component.scss']
 })
 export class PostBlockComponent implements OnInit {
+
+  @Input() public postData: Post;
 
   constructor() { }
 
