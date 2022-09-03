@@ -1,5 +1,7 @@
-<p>archive works!</p>
-<div *ngFor="let postsInMonth of postsInMonths">
-  {{postsInMonth.month}}
-  <app-posts-list [postsDataList]="postsInMonth.posts"></app-posts-list>
+<div class="archive-container">
+  <div *ngFor="let postsInMonth of postsInMonths">
+    <span class="archive-month-header">{{postsInMonth.month}}</span>
+    <app-posts-list [postsDataList]="postsInMonth.posts"></app-posts-list>
+  </div>
 </div>
+

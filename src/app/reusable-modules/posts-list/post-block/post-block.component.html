@@ -1,6 +1,9 @@
-<div>
-  {{postData.title}}
-  {{postData.date}}. {{postData.creator}}
-  {{postData.content|slice: 100}}
-  <a [routerLink]="['/post', postData.id]">Read more!</a>
+<div class="post-block-container">
+  <div class="post-block">
+    <span class="post-title">{{postData.title | truncate: 40}}</span>
+    <span class="post-meta">{{postData.date | date: "MMM, y"}}, Author: {{postData.creator}}</span>
+    <span class="post-excerpt">{{postData.content|truncate: 100}}</span>
+    <a [routerLink]="['/post', postData.id]" class="post-cta">Read more!</a>
+  </div>
+  <div class="connect-line"></div>
 </div>

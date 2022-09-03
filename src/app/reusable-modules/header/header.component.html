@@ -1,16 +1,33 @@
-<div>
-  <ul>
-    <li><a [routerLink]="['/monthly-posts']">Read more!</a></li>
-    <li><a [routerLink]="['/archive']">Archive</a></li>
-    <li><a [routerLink]="['/about-project']">About project</a></li>
-  </ul>
+<div class="navbar">
+  <div class="nav-items">
+    <a class="nav-item"
+       [routerLink]="['/monthly-posts']"
+       routerLinkActive="is-active"
+    >
+      <div>Recent posts</div>
+    </a>
+    <div class="divider"></div>
+    <a class="nav-item"
+       [routerLink]="['/archive']"
+       routerLinkActive="is-active"
+    >
+      <div>Archive</div>
+    </a>
+    <div class="divider"></div>
+    <a class="nav-item"
+       [routerLink]="['/about-project']"
+       routerLinkActive="is-active"
+    >
+      <div>About</div>
+    </a>
+  </div>
+  <div class="nav-wallet" [ngSwitch]="walletConnectService.walletConnected">
+    <a [routerLink]="['/profile']" *ngSwitchCase="true">
+      <p>{{walletConnectService.userAuthState.address | truncate: 15}}</p>
+    </a>
+    <div class="nav-connect-wallet" *ngSwitchCase="false">
+      <button (click)="connectToWallet()">Connect wallet</button>
+    </div>
+  </div>
 </div>
-<div>
-  <a [routerLink]="['/profile']">
-    <p>0xDDDDDDDDDDDDDDDD</p>
-    <div>avatar</div>
-  </a>
-</div>
-<div>
-  <button (click)="connectToWallet()">Connect wallet</button>
-</div>
+

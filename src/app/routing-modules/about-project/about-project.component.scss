@@ -1,0 +1,26 @@
+.header{
+  text-align: center;
+  margin-top: 80px;
+}
+
+.description{
+  text-align: center;
+  margin: 40px auto;
+  max-width: 800px;
+}
+
+.twitter-links{
+  display: flex;
+  margin: 0 auto;
+  flex-flow: row;
+  justify-content: space-around;
+  width: 500px;
+  margin-top: 40px;
+}
+
+.twitter-link{
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  padding: 8px;
+}

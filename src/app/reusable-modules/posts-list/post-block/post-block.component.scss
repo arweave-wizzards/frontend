@@ -1,0 +1,47 @@
+.post-block-container{
+  display: flex;
+  align-items: center;
+  flex-flow: column;
+}
+
+.post-block{
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  padding: 30px;
+  border: solid 1px black;
+  width: 530px;
+  text-align: center;
+}
+
+.post-title{
+  font-size: 24px;
+  text-decoration: underline double 1px;
+  margin-bottom: 15px;
+}
+
+.post-meta{
+  margin-bottom: 10px;
+}
+
+.post-excerpt{
+  margin-bottom: 20px;
+  color: #5d5d5d;
+}
+
+.post-cta{
+  background-color: black;
+  text-decoration: none;
+  color: white;
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 8px 0;
+}
+
+.connect-line{
+  height: 40px;
+  width: 9px;
+  border-right: 9px dotted #9f9f9f;
+  margin: 10px 0;
+}

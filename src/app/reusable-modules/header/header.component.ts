@@ -9,7 +9,7 @@ import {WalletConnectService} from "../../shared-services/wallet-connect.service
 export class HeaderComponent implements OnInit {
 
   constructor(
-    private walletConnectService: WalletConnectService,
+    public walletConnectService: WalletConnectService,
   ) {
   }
 
