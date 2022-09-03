@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: 'profile/:address', loadChildren: ()=>import('./routing-modules/profile/profile.module').then(m=>m.ProfileModule)},
   {path: 'write-post', loadChildren: ()=>import('./routing-modules/write-post/write-post.module').then(m=>m.WritePostModule)},
   {path: 'about-project', loadChildren: ()=>import('./routing-modules/about-project/about-project.module').then(m=>m.AboutProjectModule)},
-  {path: 'post/:id', loadChildren: ()=>import('./routing-modules/single-post/single-post-routing.module').then(m=>m.SinglePostRoutingModule)}
+  {path: 'post/:id', loadChildren: ()=>import('./routing-modules/single-post/single-post-routing.module').then(m=>m.SinglePostRoutingModule)},
 ];
 
 @NgModule({

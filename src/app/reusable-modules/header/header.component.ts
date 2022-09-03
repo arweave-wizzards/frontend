@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import {WalletConnectService} from "../../shared-services/wallet-connect.service";
 
 @Component({
   selector: 'app-header',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+    private walletConnectService: WalletConnectService,
+  ) {
+  }
 
-  ngOnInit(): void {
+  public ngOnInit(): void {
+    this.walletConnectService.tryToConnectWalletOnInit();
+  }
+
+  public connectToWallet(): void {
+    this.walletConnectService.connectWallet().then();
   }
 
 }
