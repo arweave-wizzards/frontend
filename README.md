@@ -19,12 +19,11 @@ Sometimes, app needs to be refreshed, after wallet adding process.
 # Docs
 
 ## 1. Running app
-'''
-git clone https://github.com/arweave-wizzards/frontend.git
+```git clone https://github.com/arweave-wizzards/frontend.git
 cd frontend
 npm install 
 npm run start
-'''
+```
 ## 2. Go to the:
 ``` localhost:4200/```
 
