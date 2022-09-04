@@ -1,27 +1,42 @@
-# Frontend
+# Checkpoint Web3.0 DApp created with Warp(by RedStone) and Arweave blockchain
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.2.1.
+Briefly - it is the decentralised platform for bloggers and content creators. Nowadays, content in internet could be as valuable as profitable for creators. That's why our DApp main theme is to give ability for people to create content, but not being censored by big corporations. The problem of actual social medias is also the algorithm of content fitting. Often, the least worth content is gratified and being share for the most of society. Our software could solve it, by giving ability for people to create decentralised content and earning on them.
 
-## Development server
+# Team members:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+- Maksym Malicki
+- Kamil Chmielewski
+- Dominik Nuszkiewicz
 
-## Code scaffolding
+# Presentation of project is on the film created by us, the link is here:
+```https://youtu.be/FTbAHd0BtT8```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+# Demo of our app is here:
+``` https://srv33622.seohost.com.pl/ ```
+You need to have Arweave wallet to use our app. You can connect with it or install by clicking "Connect with waller". 
+Sometimes, app needs to be refreshed, after wallet adding process.
 
-## Build
+# Docs
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 1. Running app
+'''
+git clone https://github.com/arweave-wizzards/frontend.git
+cd frontend
+npm install 
+npm run start
+'''
+## 2. Go to the:
+``` localhost:4200/
 
-## Running unit tests
+## 3. Enjoy the app!
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Project structure and specification
 
-## Running end-to-end tests
+Our project was created in Angular and Warp library to connect on Arwearve blockachain. We have also second repo for contract deploying:
+```https://github.com/arweave-wizzards/backend.git```
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+The structure is simple - we have frontend in Angular and backend in one service which is combining whole functions as some kind of interface: 
+```src\app\shared-services\wallet-connect.service.ts```
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
