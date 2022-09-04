@@ -1,4 +1,5 @@
 import {Injectable} from '@angular/core';
+import { Router } from '@angular/router';
 import {UserAuthState} from "../shared-interfaces/user-auth-state.interface";
 
 @Injectable({
@@ -6,13 +7,17 @@ import {UserAuthState} from "../shared-interfaces/user-auth-state.interface";
 })
 export class WalletConnectService {
 
+  
+
+  private router: Router;
+
   public walletConnected: boolean = false;
   public userAuthState: UserAuthState = {
     address: '',
     contractAddress: '',
   };
 
-  constructor() {
+  constructor(router: Router) {
   }
 
   public tryToConnectWalletOnInit(): void {
@@ -45,12 +50,25 @@ export class WalletConnectService {
       console.error(e);
       if (!this.userAuthState.address) {
         console.warn('Failed to get address. Connecting to ArConnect');
-        await (window as any).arweaveWallet.connect([
-          'ACCESS_ADDRESS',
-          'ACCESS_ALL_ADDRESSES',
-          'SIGN_TRANSACTION',
-        ]);
-        await this.loadAddress();
+
+        if ((window as any).arweaveWallet == undefined) {
+          let arwalletInstallUrl = 'https://chrome.google.com/webstore/detail/arconnect/einnioafmpimabjcddiinlhmijaionap'
+          window.open(arwalletInstallUrl, '_blank');
+        } else {
+
+          await (window as any).arweaveWallet.connect([
+            'ACCESS_ADDRESS',
+            'ACCESS_ALL_ADDRESSES',
+            'SIGN_TRANSACTION',
+          ]);
+          await this.loadAddress();
+
+        }
+
+
+        
+        
+      
       }
     }
   }
