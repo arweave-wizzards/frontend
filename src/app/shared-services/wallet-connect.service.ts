@@ -7,7 +7,6 @@ import {UserAuthState} from "../shared-interfaces/user-auth-state.interface";
 })
 export class WalletConnectService {
 
-  
 
   private router: Router;
 
