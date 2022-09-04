@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import { BlogContractService } from 'src/app/shared-services/blog-contract.service';
 import {Post} from "../../shared-interfaces/post.interface";
 
 @Component({
@@ -8,11 +9,22 @@ import {Post} from "../../shared-interfaces/post.interface";
 })
 export class IntervalPostsComponent implements OnInit {
 
+  blogContractService: BlogContractService;
+
+  constructor(blogContractService: BlogContractService) {}
+
   public monthlyPosts: Post[];
 
   public ngOnInit(): void {
     this.getPostsArchive();
+    console.log("JBZD");
+    console.log(this.blogContractService.getPostsByAuthor('niaEQjYytHzUDqeicQ2nZTPwGT3j8qwELWVlwZbnAkU'));
   }
+
+
+
+
+
 
   public getPostsArchive(): void {
     this.monthlyPosts = [
