@@ -26,7 +26,7 @@ npm install
 npm run start
 '''
 ## 2. Go to the:
-``` localhost:4200/
+``` localhost:4200/```
 
 ## 3. Enjoy the app!
 
