@@ -2,6 +2,7 @@ import { ArWallet, Contract, WarpFactory } from "warp-contracts";
 import { Injectable } from '@angular/core';
 import { BlogState } from "../contracts/model/blog-state";
 import { Post } from "../shared-interfaces/post.interface";
+import { ContractResult } from "../contracts/model/contract-result";
 @Injectable({
     providedIn: 'root'
 })
@@ -16,8 +17,8 @@ export class BlogContractService {
 
 
     constructor(userWallet: ArWallet) {
-        async() => {
-
+        const init = async() => {
+            console.log("XDDDDDDDDDDDDD")
             //3. warp adding
             const warp = WarpFactory.forMainnet();
 
@@ -30,16 +31,18 @@ export class BlogContractService {
             let stateOfContract = (await this.contract.readState()).cachedValue.state;
 
         }
+        init();
     }
 
     getPostsByAuthor(address: string): any{
-        async() => {
+        return async() => {
             const {result} = await this.contract.viewState({
                 function: 'readPost',
                 author: address
               })
               return {result};
-        };
+              
+        } 
         
 
     }
