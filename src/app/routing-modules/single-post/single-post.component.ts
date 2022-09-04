@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {Post} from "../../shared-interfaces/post.interface";
 import {Subscription} from "rxjs";
 import {ActivatedRoute} from "@angular/router";
+import { BlogContractService } from 'src/app/shared-services/blog-contract.service';
 
 @Component({
   templateUrl: './single-post.component.html',
@@ -10,36 +11,35 @@ import {ActivatedRoute} from "@angular/router";
 export class SinglePostComponent implements OnInit {
 
   public paramsSub: Subscription;
+
   public post: Post;
 
+
+  public blogContractService: BlogContractService;
+
+
   constructor(
-    private route: ActivatedRoute,
+    private route: ActivatedRoute, 
   ) {
+    this.blogContractService = new BlogContractService('use_wallet')
   }
 
-  public ngOnInit(): void {
-    this.paramsSub = this.route.params.subscribe(params => {
-      this.post = this.getPostById(params.id);
-    });
-  }
 
-  public getPostById(id: number): Post{
-    return  {
-      id: 4,
-      title: 'abc',
-      creator: 'abc',
-      date: new Date(Date.now()),
-      content: 'abc',
-      tags: ['abc', 'acb'],
-      votes: {
-        status: 0,
-        addresses: [],
-      }
-    };
-  }
 
-  public ngOnDestroy(): void {
-    this.paramsSub.unsubscribe();
+  public ngOnInit() {
+    let zmienna = this.blogContractService.getPosts('niaEQjYytHzUDqeicQ2nZTPwGT3j8qwELWVlwZbnAkU');
+    setTimeout(() => {
+      zmienna().then(x => {
+        this.paramsSub = this.route.params.subscribe(params => {
+          this.post = [x.result].find(a=>a.id == params.id);
+        });
+      })
+    }, 1000);
+
   }
 
 }
+
+
+
+

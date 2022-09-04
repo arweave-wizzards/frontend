@@ -4,23 +4,25 @@ import { Post } from "../../shared-interfaces/post.interface";
 import userWallet from '../../../../../dominik-wallet.json';
 import { async } from '@angular/core/testing';
 import { BehaviorSubject, delay, Observable, of, Subscribable, Subscription } from 'rxjs';
+import { WalletConnectService } from 'src/app/shared-services/wallet-connect.service';
 
 
 @Component({
   selector: 'app-interval-posts',
   templateUrl: './interval-posts.component.html',
   styleUrls: ['./interval-posts.component.scss'],
-  template: `
-    <h1>POSTY: {{monthlyPosts}}</h1>`
 
 })
 export class IntervalPostsComponent implements OnInit {
 
 
 
-  public blogContractService: BlogContractService = new BlogContractService(userWallet);
+  public blogContractService: BlogContractService;
 
-
+  constructor(
+  ){
+    this.blogContractService = new BlogContractService('use_wallet')
+  }
 
   public monthlyPosts: Post[];;
 
@@ -28,8 +30,6 @@ export class IntervalPostsComponent implements OnInit {
     let zmienna = this.blogContractService.getPosts('niaEQjYytHzUDqeicQ2nZTPwGT3j8qwELWVlwZbnAkU');
     setTimeout(() => {
       zmienna().then(x => {
-        console.log("XDDD")
-        console.log(x.result)
         this.monthlyPosts = [x.result];
       })
     }, 1000);

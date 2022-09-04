@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import {ArchiveRoutingModule} from "./archive-routing.module";
 import {ArchiveComponent} from "./archive.component";
 import {RouterModule} from "@angular/router";
-import {PostListModule} from "../../reusable-modules/posts-list/post-list.module";
 
 
 
@@ -15,7 +14,6 @@ import {PostListModule} from "../../reusable-modules/posts-list/post-list.module
     CommonModule,
     RouterModule,
     ArchiveRoutingModule,
-    PostListModule,
   ]
 })
 export class ArchiveModule { }
