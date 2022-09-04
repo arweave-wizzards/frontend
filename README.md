@@ -11,9 +11,10 @@ Briefly - it is the decentralised platform for bloggers and content creators. No
 # Presentation of project is on the film created by us, the link is here:
 ```https://youtu.be/FTbAHd0BtT8```
 
-# Demo of our app is here:
+# Demo of our app:
 ``` https://srv33622.seohost.com.pl/ ```
-You need to have Arweave wallet to use our app. You can connect with it or install by clicking "Connect with waller". 
+We deployed our app on the hosting, and connect it with domain which we had.
+You need to have Arweave wallet to use our app. You can connect with it or install by clicking "Connect with wallet". 
 Sometimes, app needs to be refreshed, after wallet adding process.
 
 # Docs
