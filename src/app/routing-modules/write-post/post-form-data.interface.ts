@@ -3,3 +3,4 @@ export interface PostFormData {
   content: string;
   category: "Beginner" | "Intermediate" | "Advanced";
 }
+

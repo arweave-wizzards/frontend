@@ -1,7 +1,9 @@
 import {Component, ViewChild} from '@angular/core';
 import {NgForm} from "@angular/forms";
+
 import { BlogContractService } from 'src/app/shared-services/blog-contract.service';
 import { WalletConnectService } from 'src/app/shared-services/wallet-connect.service';
+
 import {PostFormData} from "./post-form-data.interface";
 
 @Component({
@@ -12,6 +14,7 @@ export class WritePostComponent{
 
   @ViewChild('form') public readonly loginForm: NgForm;
 
+
   public blogContractService: BlogContractService;
 
   // portfel: WalletConnectService;
@@ -21,11 +24,13 @@ export class WritePostComponent{
     private portfel: WalletConnectService
   ) {
     this.blogContractService = new BlogContractService('use_wallet')
+
   }
 
   public get getFormData(): PostFormData {
     return this.loginForm.value;
   }
+
 
 
 
@@ -52,6 +57,7 @@ export class WritePostComponent{
 
 
     //window.open(`/single-post/${id}`, '_blank');
+
   }
 
 }
