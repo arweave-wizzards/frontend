@@ -30,7 +30,7 @@ export class IntervalPostsComponent implements OnInit {
     let zmienna = this.blogContractService.getPosts('niaEQjYytHzUDqeicQ2nZTPwGT3j8qwELWVlwZbnAkU');
     setTimeout(() => {
       zmienna().then(x => {
-        this.monthlyPosts = x.result;
+        this.monthlyPosts = x.result.sort((a,b)=>(b.timestamp - a.timestamp));
         console.log("EXXX")
         console.log(x)
       })

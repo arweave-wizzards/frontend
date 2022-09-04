@@ -10,7 +10,7 @@ import { BlogContractService } from 'src/app/shared-services/blog-contract.servi
 })
 export class SinglePostComponent implements OnInit, OnDestroy {
 
-  public paramsSub: Subscription;
+  public paramsSub: Subscription = new Subscription();
 
   public post: Post;
 
@@ -31,7 +31,7 @@ export class SinglePostComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       zmienna().then(x => {
         this.paramsSub.add(this.route.params.subscribe(params => {
-          this.post = [x.result].find(a=>a.id == params.id);
+          this.post = x.result.find(a=>a.id == params.id);
         }));
       })
     }, 1000);
