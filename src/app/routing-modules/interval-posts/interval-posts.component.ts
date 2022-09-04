@@ -31,8 +31,6 @@ export class IntervalPostsComponent implements OnInit {
     setTimeout(() => {
       zmienna().then(x => {
         this.monthlyPosts = x.result.sort((a,b)=>(b.timestamp - a.timestamp));
-        console.log("EXXX")
-        console.log(x)
       })
     }, 1000);
 

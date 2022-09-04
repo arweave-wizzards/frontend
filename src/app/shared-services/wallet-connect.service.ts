@@ -39,7 +39,7 @@ export class WalletConnectService {
       this.userAuthState.address = await (window as any).arweaveWallet.getActiveAddress();
       this.walletConnected = true;
     }
-    console.log(this.userAuthState.address);
+
   }
 
   public async connectWallet(): Promise<void>{

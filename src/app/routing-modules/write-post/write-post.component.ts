@@ -36,22 +36,18 @@ export class WritePostComponent{
     if (this.loginForm.invalid) {
       return;
     }
-
-
     let dane = this.getFormData;
-    console.log("DATAA")
-    console.log(dane)
+
     let zmienna = this.blogContractService.addPost(this.portfel.userAuthState.address, dane.content, dane.title, dane.category);
     setTimeout(() => {
       zmienna().then(x => {
-        console.log("WEED")
-        console.log(x)
+
         // window.open(`/single-post/${id}`, '_blank');});
       })
     }, 1000);
 
     // this.blogContractService.post('niaEQjYytHzUDqeicQ2nZTPwGT3j8qwELWVlwZbnAkU');
-    console.log(this.getFormData);
+  
     this.loginForm.resetForm();
 
 
