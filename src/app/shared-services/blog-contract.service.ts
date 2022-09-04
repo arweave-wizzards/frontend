@@ -34,7 +34,9 @@ export class BlogContractService {
         init();
     }
 
-    getPostsByAuthor(address: string): any{
+
+
+    getPosts(address: string): any{ //address is necessary but we deployed it to contract and doesnt have time to change :CCC
         return async() => {
             const {result} = await this.contract.viewState({
                 function: 'readPost',

@@ -3,3 +3,4 @@ export type BlogFunction =
   | 'upvotePost'
   | 'downvotePost'
   | 'readPost';
+

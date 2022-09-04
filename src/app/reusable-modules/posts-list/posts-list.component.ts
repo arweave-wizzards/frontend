@@ -1,4 +1,5 @@
-import {Component, Input, OnChanges, OnInit, SimpleChanges} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import {Post} from "../../shared-interfaces/post.interface";
 
 @Component({
@@ -6,17 +7,14 @@ import {Post} from "../../shared-interfaces/post.interface";
   templateUrl: './posts-list.component.html',
   styleUrls: ['./posts-list.component.scss']
 })
-export class PostsListComponent implements OnInit, OnChanges {
+export class PostsListComponent implements OnInit {
 
   @Input() public postsDataList: Post[];
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-    console.log(this.postsDataList);
-    console.log(changes)
-  }
 
 }

@@ -1,3 +1,16 @@
-<div class="container">
-  <app-posts-list [postsDataList]="monthlyPosts | async"></app-posts-list>
+
+<div *ngIf="monthlyPosts != undefined">
+  <div *ngFor="let postData of monthlyPosts">
+
+
+    <div class="post-block-container container-fluid">
+      <div class="post-block">
+        <span class="post-title">{{postData.title}}</span>
+        <span class="post-meta">{{postData.timestamp | date: "MMM, y"}}, Author: {{postData.author}}</span>
+        <span class="post-excerpt">{{postData.content}}</span>
+        <a [routerLink]="['/post', postData.id]" class="post-cta">Read more!</a>
+      </div>
+      <div class="connect-line"></div>
+    </div>
+  </div>
 </div>

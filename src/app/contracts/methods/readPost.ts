@@ -15,13 +15,14 @@ declare const ContractError;
 //   return { result: message };
 // };
 
-export const readPost = async (state: BlogState, { input: { author } }: BlogAction): Promise<ContractResult> => {
+export const readPost = async (state: BlogState, { input: { id } }: BlogAction): Promise<ContractResult> => {
   
-  const message = state.posts.find((m) => m.author == author);
 
-  if (!message) {
-    throw new ContractError(`Message with author: ${author} does not exist`);
+  if (state.posts.length == 0) {
+    throw new ContractError(`There are not any posts!`);
   }
 
-  return { result: message };
+  return { result: state.posts };
 };
+
+
