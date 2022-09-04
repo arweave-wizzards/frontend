@@ -17,6 +17,11 @@
     >
       <div>Archive</div>
     </a> -->
+          <div class="divider"></div>
+          <a class="nav-item" [routerLink]="['/write-post']" routerLinkActive="is-active">
+            <div>Write a post!</div>
+          </a>
+
 
           <div class="divider"></div>
 
@@ -24,6 +29,12 @@
             <div>About</div>
           </a>
           <div class="divider"></div>
+
+
+
+
+
+
           <a class="nav-item">
             <div class="nav-wallet" [ngSwitch]="walletConnectService.walletConnected">
               <!-- <a [routerLink]="['/profile']" *ngSwitchCase="true"> -->

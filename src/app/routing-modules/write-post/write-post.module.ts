@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {WritePostRoutingModule} from "./write-post-routing.module";
 import {WritePostComponent} from "./write-post.component";
 import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
 
 
 
@@ -14,6 +15,7 @@ import {RouterModule} from "@angular/router";
     CommonModule,
     RouterModule,
     WritePostRoutingModule,
+    FormsModule,
   ]
 })
 export class WritePostModule { }

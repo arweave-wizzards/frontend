@@ -1,2 +1,27 @@
-<p>write-post works!</p>
-<router-outlet></router-outlet>
+<h1 class="text-center">Write post!</h1>
+<form #form="ngForm" (ngSubmit)="onSubmit()" class="form-container">
+  <input
+    #title="ngModel"
+    type="text"
+    ngModel
+    required
+    maxlength="100"
+    name="title"
+    class="title-input input"
+    placeholder="Place the title of your post here"
+  >
+  <textarea
+    #content="ngModel"
+    ngModel
+    required
+    name="content"
+    class="markdown-input input"
+    placeholder="Place the content of your post here"
+  ></textarea>
+  <select ngModel #category="ngModel" name="category" class="input">
+    <option value="Beginner" class="category-option">Beginner</option>
+    <option value="Intermediate" class="category-option">Intermediate</option>
+    <option value="Advanced" class="category-option">Advanced</option>
+  </select>
+  <button [disabled]="form.invalid" type="submit" class="post-submit">Post it!</button>
+</form>

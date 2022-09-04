@@ -1,16 +1,26 @@
-
 <div *ngIf="monthlyPosts != undefined">
-  <div *ngFor="let postData of monthlyPosts">
 
 
-    <div class="post-block-container container-fluid">
-      <div class="post-block">
-        <span class="post-title">{{postData.title}}</span>
-        <span class="post-meta">{{postData.timestamp | date: "MMM, y"}}, Author: {{postData.author}}</span>
-        <span class="post-excerpt">{{postData.content}}</span>
-        <a [routerLink]="['/post', postData.id]" class="post-cta">Read more!</a>
+  <div class="row justify-content-center">
+    <div class="col-9">
+      <div *ngFor="let postData of monthlyPosts">
+        <div class="post-block-container container">
+
+
+
+          <div class="post-block">
+            <span class="post-title">{{postData.title}}</span>
+            <span class="post-meta">{{postData.timestamp | date: "MMM, y"}}, Author: {{postData.author}}</span>
+            <span class="post-excerpt">{{postData.content}}</span>
+            <a [routerLink]="['/post', postData.id]" class="post-cta">Read more!</a>
+          </div>
+          <div class="connect-line"></div>
+
+        </div>
+
       </div>
-      <div class="connect-line"></div>
+
+
     </div>
   </div>
 </div>
