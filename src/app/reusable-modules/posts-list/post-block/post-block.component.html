@@ -1,0 +1,9 @@
+<div class="post-block-container container">
+  <div class="post-block">
+    <span class="post-title">{{postData.title}}</span>
+    <span class="post-meta"><b>Timestamp:</b> {{postData.timestamp}}, <br><b>Author</b>: {{postData.author}}</span>
+    <span class="post-excerpt">{{postData.content}}</span>
+    <a class="post-cta" (click)="redirectToDetails(postData.id)">Read more!</a>
+  </div>
+  <div class="connect-line"></div>
+</div>

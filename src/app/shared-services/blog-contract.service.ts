@@ -8,49 +8,26 @@ import { async } from "@angular/core/testing";
     providedIn: 'root'
 })
 export class BlogContractService {
+    public userWallet: ArWallet;
+    public contractId: string = 'b84eo0qYmaweXJYGsnctbnb87SugTcEGuFlfjGGKh4Y';
+    public contract: Contract<BlogState>;
 
-    userWallet: ArWallet;
-
-    // contractId: string = 't3Kf6bG-DO8A2g6hYebEbgJIs0nJ1M-u7NvYrwx0QPw';
-    contractId: string = 'b84eo0qYmaweXJYGsnctbnb87SugTcEGuFlfjGGKh4Y';
-    
-    //2. initialising contract instance
-    contract: Contract<BlogState>; //contract to load
-
-
-    constructor(userWallet: ArWallet) {
-        const init = async() => {
-            //3. warp adding
-            const warp = WarpFactory.forMainnet();
-
-            //4. walletAddress getting from userWallet json
-            const walletAddress = await warp.arweave.wallets.jwkToAddress(this.userWallet);
-            //5. connecting userWallet to a contract
-            this.contract = warp.contract<BlogState>(this.contractId).connect(this.userWallet);
-
-            //6. reading state of contract
-            let stateOfContract = (await this.contract.readState()).cachedValue.state;
-
-        }
-        init();
+    constructor() {
+          const warp = WarpFactory.forMainnet();
+          this.contract = warp.contract<BlogState>(this.contractId).connect(this.userWallet);
     }
 
-
-
-    getPosts(address: string): any{ //address is necessary but we deployed it to contract and doesnt have time to change :CCC
+    public getPosts(address: string): () => Promise<{result: any}>{
         return async() => {
             const {result} = await this.contract.viewState({
                 function: 'readPost',
                 author: address
               })
               return {result};
-              
-        } 
-        
-
+        }
     }
 
-    addPost(address: string,content: string, title: string, category: string): any{ //address is necessary but we deployed it to contract and doesnt have time to change :CCC
+    public addPost(address: string,content: string, title: string, category: string): any{ //address is necessary, but we deployed it to contract and doesn't have time to change :CCC
         return async() => {
         await this.contract.writeInteraction({
             function: 'addPost',
@@ -59,9 +36,9 @@ export class BlogContractService {
             category: category
           });
         }
-        
+
     }
-    
+
 
 
 

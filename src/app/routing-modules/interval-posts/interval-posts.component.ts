@@ -1,7 +1,6 @@
-import { Component, OnInit, } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BlogContractService } from 'src/app/shared-services/blog-contract.service';
-import { Post } from "../../shared-interfaces/post.interface";
-
+import { Post } from '../../shared-interfaces/post.interface';
 
 
 @Component({
@@ -12,30 +11,20 @@ import { Post } from "../../shared-interfaces/post.interface";
 })
 export class IntervalPostsComponent implements OnInit {
 
-
-
-  public blogContractService: BlogContractService;
+  public monthlyPosts: Post[];
 
   constructor(
-  ){
-    this.blogContractService = new BlogContractService('use_wallet')
+    public blogContractService: BlogContractService
+  ) {
   }
 
-  public monthlyPosts: Post[];;
-
-  public ngOnInit() {
-    let zmienna = this.blogContractService.getPosts('niaEQjYytHzUDqeicQ2nZTPwGT3j8qwELWVlwZbnAkU');
-    setTimeout(() => {
-      zmienna().then(x => {
-        this.monthlyPosts = x.result.sort((a,b)=>(b.timestamp - a.timestamp));
-      })
-    }, 1000);
+  public ngOnInit(): void {
+    const getPosts = this.blogContractService.getPosts('niaEQjYytHzUDqeicQ2nZTPwGT3j8qwELWVlwZbnAkU')
+    getPosts().then(x => {
+      this.monthlyPosts = x.result.sort((a, b) => (b.timestamp - a.timestamp));
+    });
 
   }
-
 
 
 }
-
-
-

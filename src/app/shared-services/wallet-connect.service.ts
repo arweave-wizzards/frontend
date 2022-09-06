@@ -7,17 +7,11 @@ import {UserAuthState} from "../shared-interfaces/user-auth-state.interface";
 })
 export class WalletConnectService {
 
-
-  private router: Router;
-
   public walletConnected: boolean = false;
   public userAuthState: UserAuthState = {
     address: '',
     contractAddress: '',
   };
-
-  constructor(router: Router) {
-  }
 
   public tryToConnectWalletOnInit(): void {
     window.addEventListener("arweaveWalletLoaded",
@@ -65,9 +59,9 @@ export class WalletConnectService {
         }
 
 
-        
-        
-      
+
+
+
       }
     }
   }
